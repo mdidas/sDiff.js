@@ -1,0 +1,166 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color:#454545;
+    font-size: 14px;
+}
+
+h1 {
+    font-weight: normal;
+    text-align: left;
+    background-color: #202020;
+    color: #f0f0f0;
+    padding: 12px 4px;
+    font-size: 20px;
+    margin: 0;
+}
+
+h1 > span:first-child {
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: rgb(244, 206, 66);
+    color: #454545;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+h1 > span:nth-child(2) {
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: none;
+}
+
+h1 > button {
+    float: right;
+    width: 83px;
+    height: 2em;
+    margin-left: 4px;
+}
+
+h2 {
+    font-size: 15px;
+    line-height: 0px;
+    color: rgb(244, 206, 66);
+    text-align: center;
+    font-variant-caps: all-small-caps;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+section {
+    text-align: center;
+    padding: 0;
+}
+
+section:nth-child(2) {
+    transform: translateY(-10px);
+}
+
+section > div {
+    width: 100%;
+    display: inline-block;
+    height: calc(33vh - 4em);
+}
+
+section > div:nth-child(2) {
+    transform: translateY(-4px);
+}
+
+textarea, pre {
+    outline: none;
+    padding: 8px;
+    color: white;
+    border: 0;
+    background-color: black;
+    text-align: left;
+    width: calc(100% - 26px);
+    height: calc(100% - 18px);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+pre {
+    margin: 0 4px;
+    width: calc(100% - 25px);
+    height: calc(33vh - 4em);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.no-diff {
+    text-align: center;
+}
+
+.no-diff > span {
+    color: green; font-size: 40px;
+}
+
+del {
+    background-color: red;
+    color: white;
+}
+
+ins {
+    background-color: green;
+    color: white;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    color: #b0b0b0;
+    border-top: 1px solid #303030;
+    padding: 12px 4px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@media (min-width: 600px) {
+    h1 > span:nth-child(2) {
+        display:inline-block;
+    }
+
+    section > div {
+        margin-top: 0;
+        width: 50%;
+        height: calc(50vh - 5em);
+        text-align: left;
+    }
+
+    section > div:nth-child(2), section:nth-child(2) {
+        transform: unset;
+    }
+
+    pre {
+        height: calc(50vh - 7em);
+    }
+
+    section > div:first-child {
+        text-align: right;
+    }
+
+    section > div:first-child > textarea {
+        transform: translateX(-2px);
+    }
+
+    section > div:nth-child(2) {
+        margin-top: 0;
+    }
+
+    section > div:nth-child(2) > textarea {
+        transform: translateX(2px);
+    }
+
+    textarea {
+        width: calc(100% - 22px);
+    }
+}
+

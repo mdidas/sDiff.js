@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>sDiff.js - A simple Javascript-based diff tool.</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta description="sDiff.js - A simple Javascript-based diff tool.">
+    <meta name=”robots” content="index, follow">
+
+    <link rel="stylesheet" href="./style.css"></style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            <span>sDiff.js</span>
+
+            <span>A simple JavaScript-based diff tool.</span>
+
+            <button id="btn-demo">Demo Text</button>
+            <button id="btn-clear">Clear</button>
+        </h1>
+
+    </header>
+
+    <main>
+
+        <section>
+
+            <div>
+
+                <h2>Original Text</h2>
+
+                <textarea name="original" placeholder="Paste the original text here..."></textarea>
+
+            </div><!--
+
+        --><div>
+
+                <h2>Modified Text</h2>
+
+                <textarea name="modified" placeholder="...and the modified text here."></textarea>
+
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Diff</h2>
+
+            <pre id="diff" class="string"></pre>
+
+        </section>
+
+    </main>
+
+    <footer>
+        © 2020 mdidas &bullet; This site does not use cookies.
+    </footer>
+
+    <script type="text/javascript" src="./sdiff.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+
+</body>
+
+</html>
