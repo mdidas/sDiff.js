@@ -98,8 +98,15 @@ sDiff.prototype.getWords = function(string, delimiters) {
         word += char;
 
         if (delimiters.indexOf(char) > -1) {
-            words.push(word);
-            word = '';
+
+            if (char !== '\n') {
+                words.push(word);
+                word = '';
+            }
+            else {
+                words.push(word.substr(0, word.length - 1));
+                word = '\n';
+            }
         }
     }
 
@@ -255,7 +262,9 @@ sDiff.prototype.render = function() {
 
         if (part.action !== 'keep') {
             this.options.replacements.forEach(function(replacement) {
-                text = text.split(replacement.search).join(replacement.replacement);
+                if (typeof replacement.only === 'undefined' || replacement.only === part.action) {
+                    text = text.split(replacement.search).join(replacement.replacement);
+                }
             });
         }
 
