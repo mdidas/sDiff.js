@@ -35,7 +35,7 @@ var options = {
      * `delimiters: []` yields a character-based diff
      * `delimiters: [ ' ', '\n' ]` is the default setting (word-based diff) 
   * `noDiffMessage`: html to be rendered when strings coincide (see example above)
-  * `replacements`: render replacements to make some differences more clearly, e.g.
+  * `replacements`: list of substitutions to make some (otherwise invisible or unobtrusive) differences in the rendered HTML more obvious, e.g.
     ```
     replacements: [
         { search: '\n', only: 'del', replacement: '[NEWLINE]' },
