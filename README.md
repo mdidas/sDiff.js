@@ -29,8 +29,8 @@ var options = {
     noDiffMessage: '<div class="no-diff">The texts are identical! <span>✓</span></div>'
 };
 ```
-* Passing options `var diff = new sDiff(originalText, modifiedText, options);` or `diff.setOptions(options);`
-* Possible Options:
+* Passing options: `var diff = new sDiff(originalText, modifiedText, options);` or, for a given instance, by `diff.setOptions(options);`
+* Possible options:
   * `delimiters`: array of characters used to split the strings into "words" (see example above)
      * `delimiters: []` yields a character-based diff
      * `delimiters: [ ' ', '\n' ]` is the default setting (word-based diff) 
