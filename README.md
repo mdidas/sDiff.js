@@ -42,7 +42,7 @@ var options = {
         { search: '\n', only: 'ins', replacement: '[NEWLINE]\n'}
     ],
     ```
-    replaces a removed newline with the string `[NEWLINE]`and an added newline with the string `[NEWLINE]\n` 
+    replaces a removed newline with the string `[NEWLINE]` and an added newline with the string `[NEWLINE]\n` 
   * `tags`: specify, how the diff will be rendered as HTML. The default setting is  
     ```js
     tags: {
