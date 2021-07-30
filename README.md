@@ -6,11 +6,11 @@
 * example integration in website: download and open `sample-page/index.html` in your browser
 * sample usage:
 ```html
-<div id="diff-output"></div>
+<pre id="diff-output"></pre>
 
-<script type="text/javascript" src="sdiff.js">
+<script src="sdiff.js">
 
-<script type="text/javascript">
+<script>
     var originalText = 'This is a (quite simple) demonstration.';
     var originalText = 'Note: This is a hopefully useful demonstration.';
     
