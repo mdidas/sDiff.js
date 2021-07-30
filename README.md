@@ -1,9 +1,9 @@
-## sDiff.js - A simple Javascript based text-diff tool.
+# sDiff.js - A simple Javascript based text-diff tool.
 
 * simply configurable Javascript class for text diffing (character/word/line-based)
 * implements a diff algorithm described in the Wikipedia (https://en.wikipedia.org/wiki/Longest_common_subsequence_problem, last visited 2021-07-30)
 * source file: `src/sdiff.js`
-* example integration in website: download and open `sample-page/index.html` on your browser
+* example integration in website: download and open `sample-page/index.html` in your browser
 * sample usage:
 ```
 <div id="diff-output"></div>
@@ -21,19 +21,16 @@
 ```
 <img alt="Screenshot" src="./screenshot.png" />
 
-#### Options
-* How to pass options:
+## Options
+* Format:
 ```
 var options = {
     delimiters: [ ' ', '.', '\n' ],
     noDiffMessage: '<div class="no-diff">The texts are identical! <span>✓</span></div>'
 };
-
-var diff = new sDiff(originalText, modifiedText, options);
-
-diff.setOptions(options);
 ```
-* Options:
+* Passing options `var diff = new sDiff(originalText, modifiedText, options);` or `diff.setOptions(options);`
+* Possible Options:
   * `delimiters`: array of characters used to split the strings into "words" (see example above)
      * `delimiters: []` yields a character-based diff
      * `delimiters: [ ' ', '\n' ]` is the default setting (word-based diff) 
