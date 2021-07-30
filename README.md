@@ -1,4 +1,4 @@
-##sDiff.js - A simple Javascript based text-diff tool.
+## sDiff.js - A simple Javascript based text-diff tool.
 
 * simply configurable Javascript class for text diffing (character/word/line-based)
 * implements a diff algorithm described in the Wikipedia (https://en.wikipedia.org/wiki/Longest_common_subsequence_problem, last visited 2021-07-30)
@@ -21,7 +21,7 @@
 ```
 <img alt="Screenshot" src="./screenshot.png" />
 
-####Options
+#### Options
 * How to pass options:
 ```
 var options = {
@@ -62,6 +62,3 @@ diff.setOptions(options);
         keep: '<span class="identical">{ word }</span>'
     }
     ```
-    
-  
-  
