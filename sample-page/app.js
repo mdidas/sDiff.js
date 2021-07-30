@@ -15,7 +15,13 @@ window.onload = function() {
                 view.el.inputOriginal.value,
                 view.el.inputModified.value,
                 {
-                    replacements: [ { search: '\n', only: 'del', replacement: '[NEWLINE]' }, { search: '\n', only: 'ins', replacement: '[NEWLINE]\n'} ],
+                    delimiters: [],
+                    // delimiters: [ ' ', '.', '\n' ],
+                    // handleDelimitersAsWords: true,
+                    replacements: [
+                        { search: '\n', only: 'del', replacement: '[NEWLINE]' },
+                        { search: '\n', only: 'ins', replacement: '[NEWLINE]\n'}
+                    ],
                     noDiffMessage: '<div class="no-diff">The texts are identical! <span>✓</span></div>'
                 }
             );

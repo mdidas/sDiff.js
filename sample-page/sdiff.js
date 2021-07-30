@@ -18,13 +18,14 @@ sDiff.prototype.setOptions = function(options) {
     var y = this.modifiedString;
 
     var defaultTags = {
-        del: '<del>{ part }</del>',
-        ins: '<ins>{ part }</ins>',
-        keep: '<span>{ part }</span>'
+        del: '<del>{ word }</del>',
+        ins: '<ins>{ word }</ins>',
+        keep: '<span>{ word }</span>'
     };
 
     var defaultOptions = {
         delimiters: [ ' ', '\n' ],
+        handleDelimitersAsWords: false,
         condensed: true,
         tags: defaultTags,
         replacements: [],
@@ -32,7 +33,7 @@ sDiff.prototype.setOptions = function(options) {
         noDiffMessage: 'The texts are identical!'
     };
 
-    options = (typeof options !== 'undefined') 
+    options = (typeof options !== 'undefined')
         ? options
         : defaultOptions;
 
@@ -40,7 +41,11 @@ sDiff.prototype.setOptions = function(options) {
         ? this.options
         : options;
 
-    [ 'delimiters', 'condensed', 'replacements', 'decodeHtmlEntities', 'noDiffMessage' ].forEach(function(prop) {
+    [
+        'delimiters', 'condensed', 'replacements',
+        'decodeHtmlEntities', 'noDiffMessage',
+        'handleDelimitersAsWords'
+    ].forEach(function(prop) {
         if (typeof options[prop] !== 'undefined') {
             this.options[prop] = options[prop];
         }
@@ -56,7 +61,7 @@ sDiff.prototype.setOptions = function(options) {
 
     if (typeof options.tags !== 'undefined') {
         [ 'del', 'ins', 'keep' ].forEach(function(tag) {
-            this.options.tags[tag] = typeof options.tags[tag] !== 'undefined' 
+            this.options.tags[tag] = typeof options.tags[tag] !== 'undefined'
                 ? options.tags[tag]
                 : this.options.tags[tag];
         }.bind(this));
@@ -85,7 +90,7 @@ sDiff.prototype.getOptions = function() {
 
 sDiff.prototype.getWords = function(string, delimiters) {
 
-    var words = []; 
+    var words = [];
     var word = '';
 
     if (typeof delimiters === 'undefined') {
@@ -95,24 +100,29 @@ sDiff.prototype.getWords = function(string, delimiters) {
     for (var i = 0; i < string.length; i++) {
         var char = string[i];
 
-        word += char;
-
         if (delimiters.indexOf(char) > -1) {
 
-            if (char !== '\n') {
+            if (this.options.handleDelimitersAsWords) {
                 words.push(word);
-                word = '';
+                words.push(char);
             }
             else {
-                words.push(word.substr(0, word.length - 1));
-                word = '\n';
+                words.push(word + char);
             }
+
+            word = '';
         }
+        else {
+            word += char;
+        }
+
     }
 
     if (word.length > 0) {
         words.push(word);
     }
+
+    console.log(words);
 
     return words;
 }
@@ -171,7 +181,7 @@ sDiff.prototype.getLcsMatrix = function() {
             }
         }
     }
-    
+
     return m;
 }
 
@@ -196,7 +206,9 @@ sDiff.prototype.getRawDiff = function(lcsMatrix, i, j, diffs) {
         diffs.push({ action: 'del', text: x[i-1] });
         return this.getRawDiff(lcsMatrix, i-1, j, diffs);
     }
-    
+
+    console.log(diffs);
+
     return diffs.reverse();
 }
 
@@ -273,7 +285,7 @@ sDiff.prototype.render = function() {
             text = this.converter.innerHTML;
         }
 
-        renderedDiff += this.options.tags[part.action].replace('{ part }', text);
+        renderedDiff += this.options.tags[part.action].replace('{ word }', text);
     }.bind(this));
 
     return (this.options.noDiffMessage !== false && !this.hasDiff)

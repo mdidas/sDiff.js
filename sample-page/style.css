@@ -123,6 +123,12 @@ footer {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+footer a {
+    color: white;
+    font-weight: normal;
+    text-decoration: none;
+}
+
 @media (min-width: 600px) {
     h1 > span:nth-child(2) {
         display:inline-block;
