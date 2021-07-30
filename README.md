@@ -8,7 +8,7 @@
 ```html
 <pre id="diff-output"></pre>
 
-<script src="sdiff.js">
+<script src="sdiff.js"></script>
 
 <script>
     var originalText = 'This is a (quite simple) demonstration.';
