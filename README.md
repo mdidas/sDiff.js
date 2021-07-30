@@ -5,7 +5,7 @@
 * source file: `src/sdiff.js`
 * example integration in website: download and open `sample-page/index.html` in your browser
 * sample usage:
-```
+```html
 <div id="diff-output"></div>
 
 <script type="text/javascript" src="sdiff.js">
@@ -23,7 +23,7 @@
 
 ## Options
 * Format:
-```
+```js
 var options = {
     delimiters: [ ' ', '.', '\n' ],
     noDiffMessage: '<div class="no-diff">The texts are identical! <span>✓</span></div>'
@@ -36,7 +36,7 @@ var options = {
      * `delimiters: [ ' ', '\n' ]` is the default setting (word-based diff) 
   * `noDiffMessage`: html to be rendered when strings coincide (see example above)
   * `replacements`: list of substitutions to make some (otherwise invisible or unobtrusive) differences in the rendered HTML more obvious, e.g.
-    ```
+    ```js
     replacements: [
         { search: '\n', only: 'del', replacement: '[NEWLINE]' },
         { search: '\n', only: 'ins', replacement: '[NEWLINE]\n'}
@@ -44,15 +44,15 @@ var options = {
     ```
     replaces a removed newline with the string `[NEWLINE]`and an added newline with the string `[NEWLINE]\n` 
   * `tags`: specify, how the diff will be rendered as HTML. The default setting is  
-    ```
+    ```js
     tags: {
         del: '<del>{ word }</del>',
         ins: '<ins>{ word }</ins>',
         keep: '<span>{ word }</span>'
     };
-    ```
+    ```js
     If you prefer other HTML tags, just modify this, like so
-    ```
+    ```js
     tags: {
         del: '<span class="deleted">{ word }</span>',
         ins: '<span class="inserted">{ word }</span>',
