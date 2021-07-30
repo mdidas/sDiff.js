@@ -16,7 +16,7 @@
     
     var diff = new sDiff(originalText, modifiedText);
     
-    document.getElementById('diff-text').innerHTML = diff.render();
+    document.getElementById('diff-output').innerHTML = diff.render();
 </script>
 ```
 <img alt="Screenshot" src="./screenshot.png" />
