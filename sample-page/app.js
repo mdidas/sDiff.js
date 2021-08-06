@@ -15,8 +15,7 @@ window.onload = function() {
                 view.el.inputOriginal.value,
                 view.el.inputModified.value,
                 {
-                    delimiters: [],
-                    // delimiters: [ ' ', '.', '\n' ],
+                    delimiters: [ ' ', '.', '\n' ],
                     // handleDelimitersAsWords: true,
                     replacements: [
                         { search: '\n', only: 'del', replacement: '[NEWLINE]' },
