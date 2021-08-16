@@ -50,7 +50,7 @@ var options = {
         ins: '<ins>{ word }</ins>',
         keep: '<span>{ word }</span>'
     };
-    ```js
+    ```
     If you prefer other HTML tags, just modify this, like so
     ```js
     tags: {
